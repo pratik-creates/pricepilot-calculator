@@ -1,52 +1,90 @@
+<div align="center">
+
 # PricePilot
 
-Calculate Better • Sell Smarter
+### Calculate Better • Sell Smarter
 
-PricePilot is a modern web-based pricing calculator built to simplify cost estimation and selling price calculations.
+Modern pricing calculator for cost estimation, profit planning and selling price calculation.
 
-Users can calculate:
-
-- Total Cost
-- Labour / Transport Cost
-- Cost Per Item
-- Profit Added
-- Final Selling Price
-- Optional Extra Charges
-
-## Features
-
-- Modern Responsive Interface
-- Fast & Simple Calculations
-- Cost & Profit Planning
-- Business Friendly Workflow
-- Clean User Experience
-
-## Built With
-
-- HTML5
-- CSS3
-- JavaScript
-
-## Use Cases
-
-- Small Businesses
-- Resellers
-- Item Pricing
-- Daily Cost Calculation
-- Product Selling
-
-## Project Status
-
-Version 1.0 — Live
-
-## Live Demo
-
-Coming Soon
-
-## Creator
-
-Created by **Pratik Creates**
+</div>
 
 ---
 
+## Overview
+
+PricePilot is a clean and modern pricing calculator built to simplify everyday business calculations.
+
+Instead of manually calculating total cost, labour charges and profit margins, PricePilot provides a faster workflow to estimate item pricing accurately.
+
+---
+
+## Core Features
+
+✓ Total Cost Calculation  
+✓ Labour / Transport Cost Support  
+✓ Cost Per Item Calculation  
+✓ Profit Margin Addition  
+✓ Final Selling Price Estimation  
+✓ Optional Extra Charges  
+✓ Responsive User Interface  
+
+---
+
+## Built With
+
+<div align="center">
+
+HTML5 • CSS3 • JavaScript
+
+</div>
+
+---
+
+## Designed For
+
+- Small Businesses  
+- Resellers  
+- Product Pricing  
+- Cost Planning  
+- Daily Calculations  
+
+---
+
+## Goals
+
+PricePilot focuses on:
+
+- Speed  
+- Simplicity  
+- Accuracy  
+- Better pricing decisions  
+
+---
+
+## Preview
+
+Coming Soon
+
+---
+
+## Project Status
+
+🟢 Active
+
+Version 1.0
+
+---
+
+## Creator
+
+Created and maintained by
+
+### Pratik Creates
+
+---
+
+<div align="center">
+
 PricePilot © 2026
+
+</div>
