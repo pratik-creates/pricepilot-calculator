@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>PricePilot — Calculate Better • Sell Smarter</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:
+linear-gradient(135deg,#0B1220,#1E293B);
+color:white;
+}
+
+.container{
+max-width:950px;
+margin:auto;
+padding:24px;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:relative;
+margin-bottom:50px;
+}
+
+.menu{
+font-size:32px;
+cursor:pointer;
+}
+
+.logo{
+font-size:34px;
+font-weight:800;
+}
+
+.logo span{
+color:#38BDF8;
+}
+
+#drawer{
+
+position:absolute;
+
+top:60px;
+
+left:0;
+
+width:230px;
+
+display:none;
+
+padding:18px;
+
+border-radius:20px;
+
+background:
+rgba(15,23,42,.98);
+
+backdrop-filter:blur(18px);
+
+}
+
+#drawer a{
+
+display:block;
+
+padding:14px;
+
+margin-bottom:6px;
+
+text-decoration:none;
+
+color:white;
+
+border-radius:12px;
+
+}
+
+#drawer a:hover{
+
+background:
+rgba(255,255,255,.08);
+
+}
+
+.hero{
+
+text-align:center;
+
+margin-bottom:40px;
+
+}
+
+.hero h1{
+
+font-size:56px;
+
+line-height:1.1;
+
+}
+
+.hero p{
+
+margin-top:16px;
+
+color:#B7C6D8;
+
+font-size:18px;
+
+}
+
+.card{
+
+background:
+rgba(255,255,255,.07);
+
+padding:30px;
+
+border-radius:26px;
+
+backdrop-filter:blur(18px);
+
+border:
+1px solid
+rgba(255,255,255,.08);
+
+}
+
+.group{
+margin-bottom:18px;
+}
+
+label{
+
+display:block;
+
+margin-bottom:8px;
+
+color:#DCE7F5;
+
+}
+
+input,
+select{
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+outline:none;
+
+border-radius:14px;
+
+background:
+rgba(255,255,255,.08);
+
+color:white;
+
+}
+
+option{
+color:black;
+}
+
+button{
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+border-radius:14px;
+
+margin-top:12px;
+
+font-size:16px;
+
+font-weight:700;
+
+cursor:pointer;
+
+}
+
+.primary{
+
+background:
+linear-gradient(
+90deg,
+#2563EB,
+#06B6D4
+);
+
+color:white;
+
+}
+
+.secondary{
+
+background:#334155;
+
+color:white;
+
+}
+
+.extra{
+display:none;
+}
+
+.results{
+
+display:grid;
+
+gap:12px;
+
+margin-top:22px;
+
+}
+
+.result{
+
+padding:18px;
+
+border-radius:16px;
+
+display:flex;
+
+justify-content:space-between;
+
+background:
+rgba(255,255,255,.06);
+
+}
+
+.final{
+
+background:
+linear-gradient(
+90deg,
+#059669,
+#10B981
+);
+
+}
+
+.section{
+
+margin-top:80px;
+
+}
+
+.section h2{
+
+font-size:34px;
+
+margin-bottom:18px;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(
+auto-fit,
+minmax(220px,1fr)
+);
+
+gap:16px;
+
+}
+
+.box{
+
+padding:24px;
+
+border-radius:18px;
+
+background:
+rgba(255,255,255,.06);
+
+}
+
+.box p{
+
+margin-top:10px;
+
+line-height:1.8;
+
+color:#B7C6D8;
+
+}
+
+.contact{
+
+line-height:2;
+
+}
+
+.footer{
+
+margin-top:80px;
+
+padding:40px;
+
+text-align:center;
+
+color:#90A3BB;
+
+border-top:
+1px solid
+rgba(255,255,255,.08);
+
+}
+
+.footer small{
+
+display:block;
+
+margin-top:12px;
+
+}
+
+@media(max-width:700px){
+
+.hero h1{
+font-size:38px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<nav>
+
+<div class="menu"
+onclick="toggleMenu()">
+
+☰
+
+</div>
+
+<div class="logo">
+
+Price<span>Pilot</span>
+
+</div>
+
+<div></div>
+
+<div id="drawer">
+
+<a href="#calculator">
+Calculator
+</a>
+
+<a href="#about">
+About
+</a>
+
+<a href="#contact">
+Contact
+</a>
+
+</div>
+
+</nav>
+
+<div class="hero">
+
+<h1>
+
+Calculate Better.<br>
+Sell Smarter.
+
+</h1>
+
+<p>
+
+Professional item pricing calculator for daily business.
+
+</p>
+
+</div>
+
+<div
+class="card"
+id="calculator">
+
+<div class="group">
+
+<label>
+Total Items Price (₹)
+</label>
+
+<input
+id="price"
+type="number"
+placeholder="Enter total items price">
+
+</div>
+
+<div class="group">
+
+<label>
+Labour / Transport (₹)
+</label>
+
+<input
+id="labour"
+type="number"
+placeholder="Enter labour cost">
+
+</div>
+
+<div class="group">
+
+<label>
+Total Items
+</label>
+
+<input
+id="items"
+type="number"
+placeholder="Enter total items">
+
+</div>
+
+<div class="group">
+
+<label>
+Profit Percentage (%)
+</label>
+
+<input
+id="profit"
+type="number"
+placeholder="Enter profit percentage">
+
+</div>
+
+<button
+class="secondary"
+onclick="toggleExtra()">
+
++ Add Extra Cost
+
+</button>
+
+<div
+class="extra"
+id="extra">
+
+<br>
+
+<select>
+
+<option>GST</option>
+<option>Tax</option>
+<option>Packing</option>
+<option>Delivery</option>
+<option>Custom</option>
+
+</select>
+
+<br><br>
+
+<input
+id="extraValue"
+type="number"
+placeholder="Enter extra amount">
+
+</div>
+
+<button
+class="primary"
+onclick="calculate()">
+
+Calculate
+
+</button>
+
+<button
+class="secondary"
+onclick="resetAll()">
+
+Reset
+
+</button>
+
+<div class="results">
+
+<div class="result">
+<span>Total Cost</span>
+<span>₹ <span id="total">0</span></span>
+</div>
+
+<div class="result">
+<span>Per Item Cost</span>
+<span>₹ <span id="per">0</span></span>
+</div>
+
+<div class="result">
+<span>Profit Added</span>
+<span>₹ <span id="added">0</span></span>
+</div>
+
+<div class="result final">
+<span>Final Selling Price</span>
+<span>₹ <span id="final">0</span></span>
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>
+Why PricePilot
+</h2>
+
+<div class="grid">
+
+<div class="box">
+⚡ Fast
+<p>Instant calculation with clean results.</p>
+</div>
+
+<div class="box">
+📦 Business Friendly
+<p>Useful for buying and selling items.</p>
+</div>
+
+<div class="box">
+💰 Smart Pricing
+<p>Plan profit before selling.</p>
+</div>
+
+</div>
+
+</div>
+
+<div
+class="section"
+id="about">
+
+<h2>
+About PricePilot
+</h2>
+
+<div class="box">
+
+<p>
+
+PricePilot helps calculate real product cost after labour and extra charges.
+
+Instead of manual calculations, enter values once and instantly know per item cost, added profit and final selling price.
+
+Built for fast daily pricing.
+
+</p>
+
+</div>
+
+</div>
+
+<div
+class="section"
+id="contact">
+
+<h2>
+Contact
+</h2>
+
+<div
+class="box contact">
+
+📧 support@pricepilot.app
+
+<br>
+
+🌍 Available Worldwide
+
+<br>
+
+💬 Suggestions Welcome
+
+<br>
+
+⏱ Average Response: 24 Hours
+
+</div>
+
+</div>
+
+<div class="footer">
+
+© 2026 PricePilot
+
+<small>
+
+Calculate Better • Sell Smarter
+
+</small>
+
+</div>
+
+</div>
+
+<script>
+
+function toggleMenu(){
+
+let x=
+document.getElementById(
+"drawer"
+);
+
+x.style.display=
+
+x.style.display==="block"
+
+?
+
+"none"
+
+:
+
+"block";
+
+}
+
+function toggleExtra(){
+
+let x=
+document.getElementById(
+"extra"
+);
+
+x.style.display=
+
+x.style.display==="block"
+
+?
+
+"none"
+
+:
+
+"block";
+
+}
+
+function setValue(
+id,
+value
+){
+
+document
+.getElementById(
+id
+)
+
+.innerText=
+value;
+
+}
+
+function calculate(){
+
+let price=
+Number(
+document
+.getElementById(
+"price"
+).value
+);
+
+let labour=
+Number(
+document
+.getElementById(
+"labour"
+).value
+);
+
+let items=
+Number(
+document
+.getElementById(
+"items"
+).value
+);
+
+let profit=
+Number(
+document
+.getElementById(
+"profit"
+).value
+);
+
+let extra=
+Number(
+document
+.getElementById(
+"extraValue"
+)?.value
+||0
+);
+
+if(
+price<=0||
+items<=0
+){
+
+alert(
+"Enter valid values"
+);
+
+return;
+
+}
+
+let total=
+price+
+labour+
+extra;
+
+let per=
+Math.round(
+total/items
+);
+
+let added=
+Math.round(
+per*
+profit/
+100
+);
+
+let final=
+per+
+added;
+
+setValue(
+"total",
+total
+);
+
+setValue(
+"per",
+per
+);
+
+setValue(
+"added",
+added
+);
+
+setValue(
+"final",
+final
+);
+
+}
+
+function resetAll(){
+
+document
+.querySelectorAll(
+"input"
+)
+
+.forEach(
+
+x=>
+
+x.value=""
+
+);
+
+["total","per","added","final"]
+
+.forEach(
+
+x=>
+
+setValue(
+x,
+0
+)
+
+);
+
+document
+.getElementById(
+"extra"
+)
+
+.style.display=
+"none";
+
+}
+
+</script>
+
+</body>
+</html>
